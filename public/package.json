@@ -1,0 +1,36 @@
+{
+  "name": "dietdesign",
+  "version": "1.0.1",
+  "description": "Diet Design, made for Parallels Development with <3",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "install-app-deps",
+    "pack": "electron-builder --dir",
+  "dist": "electron-builder"
+  },
+  "author": "Parallels Development",
+  "license": "ISC",
+  "build": {
+    "appId": "com.parallelsdietdesign.app",
+    "asar": true,
+    "win": {
+      "target": "NSIS",
+      "icon": "img/DietDesignLogoXG2.ico"
+    }
+  },
+  "dependencies": {
+    "ajax-request": "^1.2.3",
+    "electron-html-to": "^2.6.0",
+    "electron-packager": "^14.2.0",
+    "file-saver": "^2.0.2",
+    "html-pdf": "^2.2.0",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.16",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "electron": "^7.1.11",
+    "electron-builder": "^22.3.2"
+  }
+}

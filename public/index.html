@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Diet Design</title>
+	<link rel="icon" type="image/png" href="./img/DietDesignLogoXG2.png"/>
+	<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/select2/dist/css/select2.min.css">
+	<script defer src="./bower_components/font-awesome/svg-with-js/js/fontawesome-all.js"></script>
+</head>
+<body>
+<!--Espacio para las configuraciones-->
+<span id="config-container">
+		<div class="btn-group dropleft">
+				<button type="button" class="btn btn-outline-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-cog"></i>
+				</button>
+					<div class="dropdown-menu">
+							<a style="cursor: pointer;" data-toggle="modal" data-target="#config">Datos de Impresión</a>
+							<hr>
+					</div>
+			</div>
+</span>	
+<!--Modal de configuracion-->
+<div class="modal fade" id="config" tabindex="-1" role="dialog" aria-labelledby="dataLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dataLabel">Configuración</h5>
+					<button type="button" class="close cancel-config" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+						<form>
+							<div class="form-row">
+								<div class="form-group col-md-4">
+										<label for="inputState">Prefijo</label>
+										<select id="prefijo" class="form-control">
+											<option selected>Prefijo...</option>
+											<option value="Dr.">Dr.</option>
+											<option value="Dra.">Dra.</option>
+											<option value="Lic.">Lic.</option>
+										</select>
+									</div>
+									<div class="form-group col-md-2">
+											<label for="inputZip">Nombre</label>
+											<input type="text" style="width: 276px;" class="form-control" id="nombre-lic" placeholder="Juan Perez">
+										</div>
+							</div>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="clinica">Clínica/Hospital</label>
+										<input type="text" class="form-control" id="clinica" placeholder="Clinica Mi Clinica">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="telefono">Teléfono</label>
+										<input type="text" class="form-control" id="telefono" placeholder="2222-2222">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="direccion">Dirección de Clinica/Hospital</label>
+									<input type="text" class="form-control" id="direccion" placeholder="1234 calle, ave. principal...">
+								</div>
+							</form>
+
+
+				</div>
+				<div class="modal-footer">
+					<p style="color: red; display: none;" id="error-config">Ocurrió un error</p>
+					<p style="color: green; display: none;" id="config-success">¡Info Guardada!</p>
+					<button type="button" class="btn btn-secondary cancel-config" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary" id="save-config">Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Modal Harris Benedict-->
+<div class="modal fade" id="harris-benedict" tabindex="-1" role="dialog" aria-labelledby="harris-benedict" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Harris-Benedict</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+ 			 <ul class="nav nav-tabs" id="myTab" role="tablist">
+ 			 <li class="nav-item">
+ 			   <a class="nav-link active" id="h-b" data-toggle="tab" href="#harrisb" role="tab" aria-controls="h-b" aria-selected="true">Harris-Benedict/IMC</a>
+ 			 </li>
+ 			 <li class="nav-item">
+ 			   <a class="nav-link" id="macronutrientes" data-toggle="tab" href="#dist-macro" role="tab" aria-controls="dist-macro" aria-selected="false">Distribución Macronutrientes</a>
+ 			 </li>
+ 			 <li class="nav-item">
+ 			   <a class="nav-link" id="dist-grupo-alimentos" data-toggle="tab" href="#gpo-alimentos" role="tab" aria-controls="gpo-alimentos" aria-selected="false">Distribución Por Grupos de Alimentos</a>
+ 			 </li>
+			</ul>
+
+			<div class="tab-content" id="myTabContent">
+			  <div class="tab-pane fade show active" id="harrisb" role="tabpanel" aria-labelledby="h-b">
+			  	
+			  	    			<h6>Género:</h6>
+       					 <div class="form-check form-check-inline">
+  									  <input class="form-check-input harr-ben" type="radio" name="genero" id="femenino" value="femenino" checked>
+  										<label class="form-check-label" for="femenino">
+    									Femenino
+  										</label>
+							</div>
+							<div class="form-check form-check-inline">
+									    <input class="form-check-input harr-ben" type="radio" name="genero" id="masculino" value="masculino">
+ 										 <label class="form-check-label" for="masculino">
+										  Masculino
+										  </label>
+							</div>
+							<hr>
+							<form>
+  								<div class="form-group">
+  								  <label for="edad">Edad(Años):</label>
+  								  <input type="number" min="0" max="100" class="form-control harr-ben" id="edad" placeholder="Edad(años)">
+ 								</div>
+ 								<div class="form-group">
+ 								   <label for="altura">Estatura(cm):</label>
+ 								   <input type="number" min="0" max="300" class="form-control harr-ben" id="altura" placeholder="Altura(cm)">
+ 								</div>
+ 								<div class="form-group">
+ 								   <label for="peso">Peso(Kg):</label>
+ 								   <input type="number" min="0" max="1000" class="form-control harr-ben" id="peso" placeholder="Peso(Kg.)">
+ 								</div>
+ 								<div class="form-group">
+ 								   <label for="actividad-fisica">Actividad Física:</label>
+ 								   <input type="range" min="11" max="50" value="1"  class="form-control slider harr-ben" id="actividad-fisica">
+ 								   <p id="ejercicio">1.1</p>
+ 								</div>
+							</form>
+							<hr>
+							<h5>Totales:</h5>
+							<hr>
+							<ul class="navlist">
+        						<li id="ht-total" >Ht=(Kcal)</li>
+        						<li id="imc">IMC=(Kg/m2)</li>
+        					</ul>
+								
+					
+			  </div>
+
+			  <div class="tab-pane fade" id="dist-macro" role="tabpanel" aria-labelledby="macronutrientes">
+			  	<h5>Distribución Macronutrientes</h5>
+			  	
+			  	<!--Espacio para agregar lo de macronutrientes-->
+			  	<table class="table table-sm">
+ 					 <thead>
+					    <tr>
+					      
+					      <th scope="col">Macronutriente</th>
+					      <th scope="col">Dieta</th>
+					      <th scope="col">%</th>
+					      <th scope="col">Kcal</th>
+					      <th scope="col">gr</th>
+					      <th scope="col">Total(gr)</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      
+					      <td>CHO</td>
+					      <td><div class="mc-hb"></div></td>
+					      <td><input type="number" id="por-cho" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+					      <td><div id="kcal-cho"></div></td>
+					      <td><div id="mc-gr-cho">4</div></td>
+					      <td><div id="mc-total-cho"></div></td>	
+					    </tr>
+					    <tr>
+					      
+					      <td>Pro</td>
+					      <td><div class="mc-hb"></div></td>
+					      <td><input type="number" id="por-pro" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+					      <td><div id="kcal-pro"></div></td>
+					      <td><div id="mc-gr-pro">4</div></td>
+					      <td><div id="mc-total-pro"></div></td>
+					    </tr>
+					    <tr>
+					      
+					      <td>Lip</td>
+					      <td><div class="mc-hb"></div></td>
+					      <td><input type="number" id="por-lip" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+					      <td><div id="kcal-lip"></div></td>
+					      <td><div id="mc-gr-lip">9</div></td>
+					      <td><div id="mc-total-lip"></div></td>
+					    </tr>
+					  </tbody>
+				</table>
+				<p id="sobre-porcentaje" style="display: none;">Se pasa por: </p>
+			  </div>
+			  <div class="tab-pane fade" id="gpo-alimentos" role="tabpanel" aria-labelledby="dist-grupo-alimentos">
+			  	
+			  	<h5>Distribución Por Grupo de Alimentos</h5>
+
+			  	<!--Espacio para agregar La distribución por Grupos de Alimentos-->
+			  	<table class="table table-sm">
+				  <thead>
+				    <tr>
+				      <th scope="col">Grupo</th>
+				      <th scope="col">Porción</th>
+				      <th scope="col">KCal</th>
+				      <th scope="col">Pro</th>
+				      <th scope="col">CHO</th>
+				      <th scope="col">Lip</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				    
+				      <td>Leche Descremada</td>
+				      <td><input type="number" id="por-lch-des" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="lch-des-kcal"></div></td>
+				      <td><div id="lch-des-pro"></div></td>
+				      <td><div id="lch-des-cho"></div></td>
+				      <td><div id="lch-des-lip"></div></td>
+				    </tr>
+				    <tr>
+				     
+				      <td>Leche</td>
+				      <td><input type="number" id="por-lch" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="lch-kcal"></div></td>
+				      <td><div id="lch-pro"></div></td>
+				      <td><div id="lch-cho"></div></td>
+				      <td><div id="lch-lip"></div></td>
+				    </tr>
+				    <tr>
+				      
+				      <td>Vegetables</td>
+				      <td><input type="number" id="por-veg" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="veg-kcal"></div></td>
+				      <td><div id="veg-pro"></div></td>
+				      <td><div id="veg-cho"></div></td>
+				      <td><div id="veg-lip"></div></td>
+				    </tr>
+				    <tr>
+				      
+				      <td>Frutas</td>
+				      <td><input type="number" id="por-frutas" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="frutas-kcal"></div></td>
+				      <td><div id="frutas-pro"></div></td>
+				      <td><div id="frutas-cho"></div></td>
+				      <td><div id="frutas-lip"></div></td>
+				    </tr>
+				    <tr>
+				     
+				      <td>Cereales</td>
+				      <td><input type="number" id="por-cer" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="cer-kcal"></div></td>
+				      <td><div id="cer-pro"></div></td>
+				      <td><div id="cer-cho"></div></td>
+				      <td><div id="cer-lip"></div></td>
+				    </tr>
+				    <tr>
+				      
+				      <td>Carnes</td>
+				      <td><input type="number" id="por-car" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="car-kcal"></div></td>
+				      <td><div id="car-pro"></div></td>
+				      <td><div id="car-cho"></div></td>
+				      <td><div id="car-lip"></div></td>
+				    </tr>
+				    <tr>
+				      
+				      <td>Grasas</td>
+				      <td><input type="number" id="por-lip-grasa" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="lip-kcal"></div></td>
+				      <td><div id="lip-pro"></div></td>
+				      <td><div id="lip-cho"></div></td>
+				      <td><div id="lip-lip"></div></td>
+				    </tr>
+				    <tr>
+				      
+				      <td>Azucares</td>
+				      <td><input type="number" id="por-azucar" class="in-table" placeholder="eje:50" min="0" max="100"></td>
+				      <td><div id="azucar-kcal"></div></td>
+				      <td><div id="azucar-pro"></div></td>
+				      <td><div id="azucar-cho"></div></td>
+				      <td><div id="azucar-lip"></div></td>
+				    </tr>
+				    <tr>
+				      
+				      <td>total</td>
+				      <td></td>
+				      <td><div id="tot-kcal"></div></td>
+				      <td><div id="tot-pro"></div></td>
+				      <td><div id="tot-cho"></div></td>
+				      <td><div id="tot-lip"></div></td>
+				    </tr>
+				    <tr>
+
+				      <td>Factor de Corrección</td>
+				      <td></td>
+				      <td ><div  id="correccion-kcal"> </div></td>
+				      <td ><div id="correccion-pro"> </div></td>
+				      <td ><div id="correccion-cho"> </div></td>
+				      <td><div id="correccion-lip"></div></td>
+				    </tr>
+				  </tbody>
+				</table>
+
+			  </div>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="calcular" disabled>Calcular</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Impresión-->
+<div class="modal fade" id="tablas-a-pdf" tabindex="-1" role="dialog" aria-labelledby="tablas-a-pdfx" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tablas-a-pdfx">Tablas a exportar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				
+        <div id="group-table-export">
+
+					<!--Tablas a exportar-->
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="exportar" class="btn btn-primary">Exportar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ <!-- Side navigation -->
+<div class="sidenav">
+	<span id="menu-container">
+		<div class="btn-group desplegar">
+ 		 <button type="button" class="btn btn-outline-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ 		 		<i class="fas fa-bars"></i>
+ 		 </button>
+ 		 	<div class="dropdown-content">
+  		  		<a style="cursor: pointer;" data-toggle="modal" data-target="#harris-benedict"><i class="fas fa-heartbeat"></i> Harris-Benedict</a>
+						<hr>
+						<a style="cursor: pointer;" data-toggle="modal" data-target="#tablas-a-pdf"><i class="far fa-file-pdf"></i> Exportar a pdf</a>
+  		  		<hr>
+  		  		<a style="cursor: pointer;" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  			</div>
+		</div>
+	</span>
+	<br><br>
+ 	<img id="logo" src="./img/DietDesignLogoXG2.png">
+  	<br><br>
+  	<div id="margen-sidenav">
+  	<h4 style="color: white; margin-left: 25px;">Tiempos al día</h4> 
+  <select name="times" id="times" style="margin-left: 75px;">
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select>
+  <br><br>
+ <h4 style="color: white; margin-left: 10px;">Filtro de Nutrientes</h4>
+  <form action="" class="form-control" style="color:black;">
+<label class="pure-material-checkbox"> <input type="checkbox" class="nutriente" value="Agua" id="agua"><span>Agua(%)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="Energia" id="energia"><span>Energía(Kcal)</span></label> <br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="Proteina" id="proteina"><span>Proteina(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="Grasa Total" id="grasa-total"><span>Grasa Total(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="Carbohidratos" id="carbohidratos"><span>Carbohidratos(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="fibra_diet" id="fibra-diet"><span>Fibra Diet. Total(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="ceniza" id="ceniza"><span>Ceniza(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="calcio" id="calcio"><span>Calcio(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="fosforo" id="fosforo"><span>Fósforo(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="hierro" id="hierro"><span>Hierro(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="tiamina" id="tiamina"><span>Tiamina(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="ruboflavina" id="ruboflavina"><span>Ruboflavina(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="niacina" id="niacina"><span>Niacina(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="vitaminaC" id="vitamina-c"><span>Vitamina C(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="vitA" id="vitamina-a"><span>Vit. A equi. Retinol(mcg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="mono" id="mono-insat"><span>Ac. grasos mono-insat.(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="insat" id="poli-insat"><span>Ac. grasos poli-insat.(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="saturados" id="grasos-saturados"><span>Ac. grasos saturados(g)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="olesterol" id="colesterol"><span>Colesterol(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="potasio" id="potasio"><span>Potasio(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="sodio" id="sodio"><span>Sodio(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="zinc" id="zinc"><span>Zinc(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="magnesio" id="magnesio"><span>Magnesio(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="b6" id="vitamina-b6"><span>Vitamina B6(mg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="b12" id="vitamina-b12"><span>Vitamina B12(mcg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="af" id="acido-folico"><span>Ácido Fólico(mcg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="fd" id="folato"><span>Folato Equiv. FD(mcg)</span></label><br>
+<label class="pure-material-checkbox"><input type="checkbox" class="nutriente" value="fComestible" id="fr-comestible"><span>Fracción Comestible(%)</span></label><br>
+</form>
+</div>
+</div>
+
+<!-- Page content -->
+<div id="main" >
+	<!--<img id="imagen_de_fondo" src="./Login_v3/images/Diet_design_bg.jpg">-->
+<div class="container">
+<div class="form-group" id="Nombre-container">
+		<label for ="Name" id="lblNombre">Nombre Del Paciente:<input type="text" name="form-control"  id="nombre" placeholder="Nombre Completo" class="form-control"  required>
+			</label>
+	</div>
+</div>
+<div id="margintable">
+<div class="group-tables" id="group-table">
+</div>
+</div>
+</div>
+	<script type="text/javascript" src="./bower_components/bootstrap/js/tests/vendor/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./Login_v3/vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./bower_components/jquery-file-download/src/Scripts/jquery.fileDownload.js"></script>
+	<script src="./bower_components/select2/dist/js/select2.min.js"></script>
+  <script type="text/javascript" src="./Scripts/dinamic-tables.js"></script>
+  <script type="text/javascript" src="./Scripts/chk-box.js"></script>
+	<script type="text/javascript" src="./Scripts/calc.js"></script>
+	<script type="text/javascript" src="./Scripts/export.js"></script>
+  <script type="text/javascript" src="./Scripts/logout.js"></script>
+</body>
+</html>

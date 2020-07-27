@@ -1,0 +1,450 @@
+body{
+  background:  -webkit-linear-gradient(top, #0C3548, #0C3548);
+}
+/*
+#imagen_de_fondo{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(../Login_v3/images/Diet_design_bg.jpg);
+    z-index: -1;
+           -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+*/
+ /* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 240px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: -webkit-linear-gradient(top, #203845, #203845);
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(Login_v3/fonts/poppins/Poppins-Medium.ttf) format("truetype");
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #cbd0d8;
+    display: block;
+}
+
+.sidenav form {
+     color: #cbd0d8;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+    margin-left: 240px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+#margintable{
+    margin-left: 245px;
+    margin-right: 20px;
+}
+
+.navlist li {
+    display: inline;
+    padding-right: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} 
+
+#Texto-Prueba{
+    margin-left: 240px; 
+    color: #cbd0d8;
+}
+#Nombre{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 55% !important;
+    display: inline-block;
+
+}
+#Nombre-container{
+    display: inline-block;
+}
+#lblNombre{
+      margin-left: 240px;
+       color: #fff;
+       width: 600px;
+}
+
+.times-col{
+    margin-left: 0px;
+}
+
+#margen-sidenav{
+    padding-left: 0.5px;
+}
+
+.in-table{
+    border: none;
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+#margin-button{
+    margin-left: 50%;
+}
+
+.btn-danger.btn-circle{
+ padding: .01rem .5rem;
+ background-color: #CC4650;
+ border-color: #CC4650;
+}
+
+
+.btn-circle, .btn-circle-3d{
+  border-radius: 50% !important;
+}
+
+.foodSelector{
+    width: 60% !important;
+}
+
+.container-foodSelector{
+    margin-bottom: 4px !important;
+}
+
+#logo {
+    width:200px;
+}
+
+#config-container{
+    float: right;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 150%;
+}
+#menu-container{
+    padding: 3px;
+    margin-top: 3px;
+    float: left;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 200%;
+    border-radius: 5px;
+}
+/*
+#menu-container:hover{
+     background-color: #5255b1;
+}
+*/
+.desplegar {
+    position: relative;
+    display: inline-block;
+}
+.desplegar-izq {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: medium;
+}
+.dropdown-content a:hover {background-color: #ddd}
+
+.desplegar:hover .dropdown-content {
+    display: block;
+}
+
+
+/*Slider style*/
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.overflow{
+    color: rgba(191,52,45,1);
+    
+}
+
+.on-limit{
+   color: rgba(31,191,56,1);
+    
+}
+
+.under-limit{
+ color: rgba(40,80,192,1);
+       
+}
+.near{
+ color: #185C51;
+       
+}
+
+/*Poner elementos en linea*/
+.hb-report{
+    display: inline !important; 
+}
+
+/*Estilo para botones*/
+.btn-success{
+    background-color: #C2DFAF !important;
+    border-color: #C2DFAF !important;
+}
+
+
+/*estilos para checkbox*/
+
+.pure-material-checkbox {
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Input */
+.pure-material-checkbox > input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: -1;
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    display: block;
+    margin: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    box-shadow: none;
+    outline: none;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+/* Span */
+.pure-material-checkbox > span {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Box */
+.pure-material-checkbox > span::before {
+    content: "";
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 3px 11px 3px 1px;
+    border: solid 2px; /* Safari */
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Checkmark */
+.pure-material-checkbox > span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 1px;
+    width: 10px;
+    height: 5px;
+    border: solid 2px transparent;
+    border-right: none;
+    border-top: none;
+    transform: translate(3px, 4px) rotate(-45deg);
+}
+
+/* Checked, Indeterminate */
+.pure-material-checkbox > input:checked,
+.pure-material-checkbox > input:indeterminate {
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-checkbox > input:checked + span::before,
+.pure-material-checkbox > input:indeterminate + span::before {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-checkbox > input:checked + span::after,
+.pure-material-checkbox > input:indeterminate + span::after {
+    border-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+}
+
+.pure-material-checkbox > input:indeterminate + span::after {
+    border-left: none;
+    transform: translate(4px, 3px);
+}
+
+/* Hover, Focus */
+.pure-material-checkbox:hover > input {
+    opacity: 0.04;
+}
+
+.pure-material-checkbox > input:focus {
+    opacity: 0.12;
+}
+
+.pure-material-checkbox:hover > input:focus {
+    opacity: 0.16;
+}
+
+/* Active */
+.pure-material-checkbox > input:active {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s, opacity 0s;
+}
+
+.pure-material-checkbox > input:active + span::before {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-checkbox > input:checked:active + span::before {
+    border-color: transparent;
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+}
+
+/* Disabled */
+.pure-material-checkbox > input:disabled {
+    opacity: 0;
+}
+
+.pure-material-checkbox > input:disabled + span {
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    cursor: initial;
+}
+
+.pure-material-checkbox > input:disabled + span::before {
+    border-color: currentColor;
+}
+
+.pure-material-checkbox > input:checked:disabled + span::before,
+.pure-material-checkbox > input:indeterminate:disabled + span::before {
+    border-color: transparent;
+    background-color: currentColor;
+}
+
+
+/*scrollbar styles*/
+
+.sidenav::-webkit-scrollbar {
+    background-color:rgba(255,255,255,0);
+    width:8px
+}
+
+/* background of the sidenav except button or resizer */
+.sidenav::-webkit-scrollbar-track {
+    background-color:rgba(255,255,255,0)
+}
+.sidenav::-webkit-scrollbar-track:hover {
+    background-color:rgba(255,255,255,0)
+}
+
+/* sidenav itself */
+.sidenav::-webkit-scrollbar-thumb {
+    background-color: rgba(186, 186, 192, 0.3);
+    border-radius:16px;
+    border:5px solid rgba(255,255,255,0)
+}
+.sidenav::-webkit-scrollbar-thumb:hover {
+    background-color:rgba(116, 125, 122, 0.6);
+    border:4px solid rgba(116, 125, 122, 0.6);
+}
+
+/* set button(top and bottom of the sidenav) */
+.sidenav::-webkit-scrollbar-button {display:none}
+
+/*Para el main*/
+body::-webkit-scrollbar {
+    background-color:rgba(255,255,255,0);
+    width:8px
+}
+
+/* background of the sidenav except button or resizer */
+body::-webkit-scrollbar-track {
+    background-color:rgba(255,255,255,0)
+}
+body::-webkit-scrollbar-track:hover {
+    background-color:rgba(255,255,255,0)
+}
+
+/* sidenav itself */
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(116, 125, 122, 0.6);
+    border-radius:16px;
+    border:5px solid rgba(255,255,255,0)
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color:rgba(116, 125, 122, 0.9);
+    border:4px solid rgba(116, 125, 122, 0.6);
+}
+
+/* set button(top and bottom of the sidenav) */
+body::-webkit-scrollbar-button {display:none}

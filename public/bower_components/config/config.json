@@ -1,0 +1,9 @@
+{
+    "config":{
+        "nombre" : "",
+        "clinica": "",
+        "telefono" : "",
+        "direccion" : ""
+    }
+    
+}
