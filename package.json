@@ -16,7 +16,7 @@
     "express-session": "^1.16.2",
     "firebase": "^7.3.0",
     "fs": "0.0.1-security",
-    "grpc": "^1.24.2",
+    "grpc": "^1.24.9",
     "locale": "^0.1.0",
     "locate": "0.0.8",
     "nodemailer": "^6.3.1",
