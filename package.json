@@ -19,7 +19,7 @@
     "grpc": "^1.24.2",
     "locale": "^0.1.0",
     "locate": "0.0.8",
-    "nodemailer": "^6.3.1",
+    "nodemailer": "^6.4.16",
     "path": "^0.12.7"
   }
 }
